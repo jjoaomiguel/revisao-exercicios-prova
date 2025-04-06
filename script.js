@@ -94,3 +94,17 @@ Dica: pesquise sobre o uso de arrays e a função `sort()`.
 
 */
 
+/* Exercício 5
+Crie um algoritmo que peça um número ao usuário. Se o número for par,
+transforme-o em ímpar. Se for ímpar, transforme-o em par.  
+Dica: utilize o operador `%` para identificar se o número é par ou ímpar.
+
+*/
+
+let n = parseFloat(prompt('Digite um número: '))
+
+if (n % 2 === 0) {
+    console.log('Este número é ímpar.')
+} else {
+    console.log('Este número é par.')
+}
