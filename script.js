@@ -19,21 +19,23 @@ console.log('A soma é: ' + soma)
 Simule uma contagem regressiva para o lançamento de um foguete, 
 partindo de 10 até 0, e ao final exiba a mensagem "Lançamento!".
 
-
-
-let i = 10
-
-function lançamento (i) {
-    while (i < 0) {
-        let subtracao = i - 1
-        console.log(subtracao)
-    }
-    console.log('LANÇAMENTO')
-}
-
-lançamento (i)
-
 */
+
+let intervalo = setInterval(lancamento, 1000)
+let contagem = 10;
+
+function lancamento() {
+    if (contagem >= 0) {
+        console.log(contagem);
+        contagem--;
+    } else {
+        console.log('Lançamento!');
+        clearInterval(intervalo);
+    }
+}
+lancamento();
+
+
 
 /* Exercicio 3
 Crie um algoritmo que solicite o ganho bruto e os gastos mensais de uma empresa durante os 12 meses do ano.
