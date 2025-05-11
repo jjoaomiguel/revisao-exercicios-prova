@@ -92,14 +92,26 @@ Crie um algoritmo que solicite ao usuário quatro valores inteiros
 e os exiba em ordem decrescente.  
 Dica: pesquise sobre o uso de arrays e a função `sort()`.
 
+
+let numeros = [];
+
+for (let i = 0; i < 4; i++) {
+  let valor = parseInt(prompt("Digite um número inteiro:"));
+  numeros.push(valor);
+}
+
+numeros.sort((a, b) => b - a);
+
+console.log('Ordem decrescente: ' + numeros.join(', '));
+
 */
+
 
 /* Exercício 5
 Crie um algoritmo que peça um número ao usuário. Se o número for par,
 transforme-o em ímpar. Se for ímpar, transforme-o em par.  
 Dica: utilize o operador `%` para identificar se o número é par ou ímpar.
 
-*/
 
 let n = parseFloat(prompt('Digite um número: '))
 
@@ -108,3 +120,177 @@ if (n % 2 === 0) {
 } else {
     console.log('Este número é par.')
 }
+
+*/
+
+/* Exercício 6
+Crie um algoritmo que leia uma letra digitada pelo usuário e informe 
+se ela é uma vogal ou uma consoante.  
+Dica: utilize `if` ou `switch` e arrays para armazenar as vogais.
+
+
+
+let letra = prompt('Digite uma letra:').toLowerCase();
+
+let vogais = ['a', 'e', 'i', 'o', 'u'];
+
+if (vogais.includes(letra)) {
+    console.log('É uma vogal.');
+} else {
+    console.log('É uma consoante.');
+}
+
+*/
+
+/* Exercício 7
+Desenvolva um algoritmo para uma picoleteria. 
+Ao selecionar um sabor, o programa deve exibir o valor do picolé. 
+Os sabores e preços são:  
+- Chocolate: R$1,50  
+- Morango: R$2,50  
+- Creme: R$2,50  
+- Manga: R$3,20  
+- Melancia: R$3,40  
+- Vanilla Ice: R$3,00  
+- Céu Azul: R$3,60  
+- Brownie: R$4,00  
+- Hawaiano: R$5,00  
+
+
+
+let sabor = prompt('Digite o sabor do picolé:').toLowerCase();
+
+let tabelaPrecos = {
+  'chocolate': 1.50,
+  'morango': 2.50,
+  'creme': 2.50,
+  'manga': 3.20,
+  'melancia': 3.40,
+  'vanilla ice': 3.00,
+  'céu azul': 3.60,
+  'brownie': 4.00,
+  'hawaiano': 5.00
+};
+
+if (sabor in tabelaPrecos) {
+  console.log('O valor do picolé de ' + sabor + ' é R$' + tabelaPrecos[sabor].toFixed(2));
+} else {
+  console.log('Sabor não encontrado.');
+}
+
+*/
+
+/* Exercício 8
+Crie um algoritmo que sorteie um número aleatório de 1 a 100 
+e peça para o usuário tentar adivinhá-lo.
+O programa deve informar se o palpite está acima ou abaixo do valor 
+sorteado até que ele acerte.  
+Dica: use `Math.random()` e `Math.floor()`.
+
+
+let numeroSecreto = Math.floor(Math.random() * 100) + 1;
+let palpite;
+
+do {
+  palpite = parseInt(prompt('Tente adivinhar o número entre 1 e 100:'));
+
+  if (palpite > numeroSecreto) {
+    console.log('O número é menor.');
+  } else if (palpite < numeroSecreto) {
+    console.log('O número é maior.');
+  } else {
+    console.log('Parabéns! Você acertou!');
+  }
+
+} while (palpite !== numeroSecreto);
+
+/*
+
+/* Exercício 9
+Desenvolva um algoritmo que peça ao usuário para digitar uma frase e, ao final, 
+exiba quantas vogais existem nessa frase.
+
+
+
+let frase = prompt('Digite uma frase:');
+let vogais = ['a', 'e', 'i', 'o', 'u'];
+let contador = 0;
+
+for (let i = 0; i < frase.length; i++) {
+  if (vogais.includes(frase[i].toLowerCase())) {
+    contador++;
+  }
+}
+
+console.log('Quantidade de vogais:', contador);
+
+*/
+
+/* Exercício 10
+Crie um programa que solicite uma senha ao usuário. 
+A senha deve conter no mínimo 8 caracteres, com pelo menos uma 
+letra maiúscula, uma minúscula e um número. 
+Ao final, informe se a senha é válida ou não.
+
+
+
+let senha = prompt('Digite a senha:');
+let maiuscula = /[A-Z]/;
+let minuscula = /[a-z]/;
+let numero = /[0-9]/;
+let valido = false;
+
+if (senha.length >= 8 && maiuscula.test(senha) && minuscula.test(senha) && numero.test(senha)) {
+  valido = true;
+}
+
+if (valido) {
+  console.log('Senha válida!');
+} else {
+  console.log('Senha inválida! A senha deve ter no mínimo 8 caracteres, uma letra maiúscula, uma minúscula e um número.');
+}
+
+*/
+
+/* Exercício 11
+Peça ao usuário para digitar um número e mostre a 
+tabuada desse número de 1 a 10.  
+Dica: utilize laços de repetição para construir a tabuada.
+
+
+
+let numero = parseFloat(prompt('Digite um número:'));
+
+for (let i = 1; i <= 10; i++) {
+  console.log(numero * i);
+}
+
+*/
+
+/* Exercício 12
+Crie um algoritmo que permita ao usuário cadastrar produtos 
+informando o nome e o preço. Após o cadastro de pelo menos 5 produtos, 
+exiba a lista de produtos com seus respectivos preços 
+e o valor total do carrinho.  
+Dica: use arrays e objetos.
+
+
+
+let produtos = [];
+let total = 0;
+
+for (let i = 0; i < 5; i++) {
+  let nome = prompt('Digite o nome do produto:');
+  let preco = parseFloat(prompt('Digite o preço do produto:'));
+  produtos.push({ nome, preco });
+  total += preco;
+}
+
+console.log('Lista de produtos:');
+for (let produto of produtos) {
+  console.log(`${produto.nome}: R$ ${produto.preco.toFixed(2)}`);
+}
+
+console.log(`Valor total do carrinho: R$ ${total.toFixed(2)}`);
+
+*/
